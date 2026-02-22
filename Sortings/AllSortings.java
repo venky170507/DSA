@@ -20,17 +20,26 @@ public class AllSortings {
         }
     }
     public static void main(String[] args) {
-        int[] arr={9,0,2,1,3,4,5,6};
-        System.out.println("Array Before Sorting: ");
-        for(int num:arr)
+        int[] arr={9,0,4,5,6,7,2,1};
+
+        if(arr.length==0)
         {
-            System.out.print(num+" ");
+            System.out.println("Array is Empty!");
         }
-        BubbleSort(arr);
-        System.out.println("\nArray After Sorting: ");
-        for(int num:arr)
+        else 
         {
-            System.out.print(num+" ");
+            System.out.println("Array Before Sorting: ");
+            for(int num:arr)
+            {
+                System.out.print(num+" ");
+            }
+            BubbleSort(arr);
+            System.out.println("\nArray After Sorting: ");
+            for(int num:arr)
+            {
+                System.out.print(num+" ");
+            }
         }
+        
     }   
 }
