@@ -1,5 +1,5 @@
 package Sortings;
-
+import java.util.*;
 public class AllSortings {
 
     public static void BubbleSort(int[] arr)
@@ -19,27 +19,71 @@ public class AllSortings {
             }
         }
     }
+
+    public static void SelectionSort(int[] arr)
+    {
+        int n=arr.length;
+
+        for(int i=0;i<n-1;i++)
+        {
+            int minIndex=i;
+            for (int j=0;j<n;j++)
+            {
+                if(arr[j]<minIndex)
+                {
+                    minIndex=j;
+                }
+            }
+
+            int temp = arr[minIndex];
+            arr[minIndex]=arr[i];
+            arr[i]=temp;
+        }
+    }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int[] arr={9,0,4,5,6,7,2,1};
 
         if(arr.length==0)
         {
             System.out.println("Array is Empty!");
         }
-        else 
+        else
         {
-            System.out.println("Array Before Sorting: ");
-            for(int num:arr)
+            System.out.println("1.Bubble Sort");
+            System.out.println("2.Selection Sort");
+
+            System.out.println("Enter Your Sorting Choice : ");
+            int choice = sc.nextInt();
+
+            System.out.println("Array before Sorting : ");
+            for(int num : arr)
             {
-                System.out.print(num+" ");
+                System.out.print(num +" ");
             }
-            BubbleSort(arr);
-            System.out.println("\nArray After Sorting: ");
-            for(int num:arr)
+
+            switch(choice)
             {
-                System.out.print(num+" ");
+                case 1:
+                    BubbleSort(arr);
+                    break;
+                case 2:
+                    SelectionSort(arr);
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+                    sc.close();
+            }
+            
+
+            System.out.println("\nArray After Sorting : ");
+            for(int num : arr)
+            {
+                System.out.print(num +" ");
             }
         }
+        
+
         
     }   
 }
